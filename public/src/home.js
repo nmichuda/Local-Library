@@ -1,14 +1,14 @@
-function getTotalBooksCount(books) {
+function getTotalBooksCount(books) { //returns length of books array
   return books.length;
 }
 
-function getTotalAccountsCount(accounts) {
+function getTotalAccountsCount(accounts) { //return length of accounts array
   return accounts.length;
 }
 
 function getBooksBorrowedCount(books) {
   let count = 0;
-  for(let i =0;i<books.length;i++){
+  for(let i =0;i<books.length;i++){ //counts the ammount of books in books array that have first element of borrows array checked out
     if(!books[i].borrows[0].returned){
       count+=1;
     }
@@ -16,24 +16,24 @@ function getBooksBorrowedCount(books) {
   return count;
 }
 
-function getMostCommonGenres(books) {
-  const container = {}
-  const result = []
-  for(let i =0; i<books.length; i++){
-    if(container[books[i].genre]){
+function getMostCommonGenres(books) { 
+  const container = {} //create object
+  const result = [] //create array
+  for(let i =0; i<books.length; i++){ //iterate through books array
+    if(container[books[i].genre]){ //if books[i].genre exists, increment count. else set count to 1.
       container[books[i].genre] += 1;
     }
     else{
       container[books[i].genre] = 1;
     }
   }
-  for(const gen in container){
+  for(const gen in container){ //assign contents of container to an array.
     const temp = {};
     temp["name"] = gen;
     temp["count"] = container[gen];
     result.push(temp);
   }
-  return topFiveCount(result);
+  return topFiveCount(result); //return top five of array.
 }
 
 function getMostPopularBooks(books) {
