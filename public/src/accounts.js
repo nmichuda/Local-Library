@@ -1,13 +1,8 @@
 const { findAuthorById } = require("./books");
 
 function findAccountById(accounts, id) {
-  for(let i=0;i<accounts.length;i++){
-    if(accounts[i].id===id){
-      return accounts[i];
-    }
-
-  }
-  return null;
+  const account = accounts.find((user)=>user.id === id);
+  return account;
   
 }
 
