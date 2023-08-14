@@ -7,13 +7,25 @@ function getTotalAccountsCount(accounts) { //return length of accounts array
 }
 
 function getBooksBorrowedCount(books) {
-  let count = 0;
-  for(let i =0;i<books.length;i++){ //counts the ammount of books in books array that have first element of borrows array checked out
+  
+  let counts = books.reduce((total,book)=>{ //changed to reduce form. return total + 1 if checked out, else just return the total.
+    if(!book.borrows[0].returned){
+      console.log(total);
+      
+      return total + 1;
+    }
+    else{
+      return total;
+    }
+
+  },0) //initial value of 0.
+ /* for(let i =0;i<books.length;i++){ //counts the ammount of books in books array that have first element of borrows array checked out
     if(!books[i].borrows[0].returned){
       count+=1;
     }
   }
-  return count;
+  return count; */
+  return counts;
 }
 
 function getMostCommonGenres(books) { 
