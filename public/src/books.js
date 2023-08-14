@@ -1,12 +1,15 @@
 //const { findAccountById } = require("./accounts.js");
 function findAccountById(accounts, id) { //could not get the function to import correctly. unsure whats going on. copy pasted function over and works fine.
-  for(let i=0;i<accounts.length;i++){
+  const account = accounts.find((user)=>user.id === id);
+  return account;
+  
+ /*for(let i=0;i<accounts.length;i++){
     if(accounts[i].id===id){
       return accounts[i];
     }
 
   }
-  return null;
+  return null;*/
   
 }
 
