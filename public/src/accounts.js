@@ -1,21 +1,21 @@
 const { findAuthorById } = require("./books");
 
 function findAccountById(accounts, id) {
-  const account = accounts.find((user)=>user.id === id);
+  const account = accounts.find((user)=>user.id === id); //find first user that matches id
   return account;
   
 }
 
-function sortAccountsByLastName(accounts) {
+function sortAccountsByLastName(accounts) { //set result to equal accounts sorted by last name to lower case.
   const result = accounts.sort((accountA,accountB)=> accountA.name.last.toLowerCase() > accountB.name.last.toLowerCase() ? 1 : -1);
   return result;
 }
 
-function getTotalNumberOfBorrows(account, books) {
-  let total = 0;
-  const accountID = account.id;
+function getTotalNumberOfBorrows(account, books) { 
+  let total = 0; //set total to 0
+  const accountID = account.id; //create const for id of input account
   
-  for(let i=0;i<books.length;i++){
+  for(let i=0;i<books.length;i++){ //increment count every time a book.borrows contains the account id. then returns the total
     for(let j=0; j<books[i].borrows.length;j++){
       if(books[i].borrows[j].id===accountID){
         total+=1;
